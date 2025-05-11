@@ -3,12 +3,9 @@ import { useAuth } from "../context/AuthProvider"
 import { useNavigate } from "react-router-dom"
 
 function AuthComponent({ children }: { children: ReactNode }) {
-    const { session, loading } = useAuth()
+    const { session, error, loading } = useAuth()
     const navigate = useNavigate()
-    // useEffect(() => {
-    //     if (loading) return
-    // }, [session, loading])
-    if (!loading && !session) navigate("/login")
+    if (!loading && !session || error) navigate("/login")
 
     return children
 }

@@ -24,8 +24,8 @@ function AppSidebar() {
             icon: GalleryThumbnails,
         },
         {
-            title: "Tin tức",
-            url: "/news",
+            title: "Bài viết",
+            url: "/post",
             icon: Newspaper,
         },
         {

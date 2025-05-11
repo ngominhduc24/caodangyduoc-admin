@@ -24,8 +24,9 @@ function Login() {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        await login(formData.email, formData.password)
-        navigate("/")
+        await login(formData.email, formData.password).then(() => {
+            navigate("/")
+        })
     }
 
     useEffect(() => {

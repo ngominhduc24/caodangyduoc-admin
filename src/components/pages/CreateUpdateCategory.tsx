@@ -10,6 +10,7 @@ import { Label } from "../ui/label"
 import CategoryTable from "../ui/category-table"
 import { toast } from "sonner"
 import { useApp } from "../context/AppProvider"
+import RichText from "../ui/RichTextEditor/hot-text"
 
 function CreateUpdateCategory() {
     const { id, parentId } = useParams()
@@ -89,9 +90,10 @@ function CreateUpdateCategory() {
         )
     }
 
+    if (isUpdate && !category) return null
 
     return (
-        <div className="w-2xl min-h-screen px-5 container">
+        <div className="max-w-5xl min-h-screen px-5 container">
             {loading && <LoaderOverlay />}
             <h1 className="text-2xl font-semibold">{title}</h1>
             <form
@@ -109,15 +111,7 @@ function CreateUpdateCategory() {
                         {...form.register("name", { required: true })}
                     />
                 </div>
-                <div className="flex flex-col space-y-2">
-                    <Label htmlFor="content">
-                        Mô tả
-                    </Label>
-                    <Input
-                        id="content"
-                        {...form.register("content")}
-                    ></Input>
-                </div>
+                <RichText content={category?.content} onChange={(content) => form.setValue("content", content)} />
                 <Button type="submit" disabled={loading}>
                     {isUpdate ? "Cập nhật" : "Tạo mới"}
                 </Button>

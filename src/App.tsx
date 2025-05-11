@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import MainLayout from "./components/layout/MainLayout"
-import { BannerPage, CategoryPage, CreateUpdateCategoryPage, ErrorPage, HomePage, LoginPage, NewsPage, PartnerPage } from "./components/pages"
+import { BannerPage, CategoryPage, CreatePostPage, CreateUpdateCategoryPage, ErrorPage, HomePage, LoginPage, NewsPage, PartnerPage } from "./components/pages"
 import { Toaster } from "sonner"
 import AuthProvider from "./components/context/AuthProvider"
 
@@ -40,8 +40,16 @@ function App() {
           element: <PartnerPage />
         },
         {
-          path: "/news",
+          path: "post",
           element: <NewsPage />
+        },
+        {
+          path: "/post/create",
+          element: <CreatePostPage />
+        },
+        {
+          path: "/post/edit/:id",
+          element: <CreatePostPage />
         },
       ]
     },
