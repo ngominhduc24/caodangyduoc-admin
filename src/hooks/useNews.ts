@@ -35,7 +35,7 @@ export const useNews = (params: {
         };
 
         fetchNews();
-    }, [params.page, params.search])
+    }, [params.page, params.search, params.category_id])
     return {
         news,
         count,
