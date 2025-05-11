@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { useState } from "react"
 import { Badge } from "../ui/badge"
 import { Input } from "../ui/input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { useCategories } from "@/hooks/useCategories"
 
 const limit = 10
