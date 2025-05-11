@@ -1,6 +1,6 @@
 export { default as HomePage } from './HomePage'
 export { default as ErrorPage } from './ErrorPage'
-export { default as BannerPage } from './Banner'
+export { default as BannerPage } from './Banner/Banner'
 export { default as CategoryPage } from './Category'
 export { default as PartnerPage } from './Partner'
 export { default as NewsPage } from './News'
