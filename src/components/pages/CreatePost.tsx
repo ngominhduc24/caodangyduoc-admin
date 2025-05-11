@@ -14,25 +14,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { usePost } from "@/hooks/useNews"
 import { Textarea } from "../ui/textarea"
 import { Checkbox } from "../ui/checkbox"
-
-const tags = [
-    {
-        id: "featured-news",
-        name: "Tin nổi bật",
-    },
-    {
-        id: "training-and-recruitment",
-        name: "Đào tạo và tuyển dụng",
-    },
-    {
-        id: "university-news",
-        name: "Tin tức trường học",
-    },
-    {
-        id: "international-news",
-        name: "Tin tức quốc tế",
-    }
-]
+import { TAGS } from "@/contansts"
 
 interface FormSchema {
     title: string
@@ -202,7 +184,7 @@ function CreatePost() {
                 <div className="mb-4 grid grid-cols-3 gap-2">
                     <Label className="mb-2 col-span-12" htmlFor="tags">Tags</Label>
                     {
-                        tags.map((tag) => (
+                        TAGS.map((tag) => (
                             <div key={tag.id} className="flex items-center space-x-2 mb-2 p-2 border rounded-md">
                                 <Checkbox
                                     id={tag.id}
@@ -216,7 +198,7 @@ function CreatePost() {
                                         }
                                     }}
                                 />
-                                <Label htmlFor={tag.id} className="cursor-pointer">{tag.id}</Label>
+                                <Label htmlFor={tag.id} className="cursor-pointer">{tag.name}</Label>
                             </div>
                         ))
                     }

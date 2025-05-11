@@ -3,9 +3,15 @@ import { CalendarIcon } from 'lucide-react'
 import { Link } from "react-router-dom"
 import { Badge } from "./badge"
 import type { Post } from "@/supabase/types"
+import { TAGS } from "@/contansts"
 
 interface PostCardProps {
     post: Post
+}
+
+const tags: Record<string, string> = {}
+for (const tag of TAGS) {
+    tags[tag.id] = tag.name
 }
 
 export default function PostCard({ post }: PostCardProps) {
@@ -47,7 +53,7 @@ export default function PostCard({ post }: PostCardProps) {
                         <div className="flex flex-wrap gap-2">
                             {post.tags.map((tag) => (
                                 <Badge key={String(tag)} variant="outline" className="text-xs border-orange-500">
-                                    {String(tag)}
+                                    {tags[String(tag)]}
                                 </Badge>
                             ))}
                         </div>
