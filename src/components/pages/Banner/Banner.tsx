@@ -93,7 +93,7 @@ function Banner() {
     return (
         <div className="max-w-5xl min-h-screen px-5 container">
             <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-semibold">Banner</h1>
+                <h1 className="text-2xl !font-semibold">Banner</h1>
                 <Dialog>
                     <DialogTrigger asChild>
                         <Button onClick={() => {

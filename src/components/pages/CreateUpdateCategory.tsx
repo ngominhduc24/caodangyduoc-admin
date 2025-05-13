@@ -95,7 +95,7 @@ function CreateUpdateCategory() {
     return (
         <div className="max-w-5xl min-h-screen px-5 container">
             {loading && <LoaderOverlay />}
-            <h1 className="text-2xl font-semibold">{title}</h1>
+            <h1 className="text-2xl !font-semibold">{title}</h1>
             <form
                 className="mt-5 flex flex-col space-y-4 border-b pb-10"
                 onSubmit={form.handleSubmit(handleSubmit)}
@@ -120,7 +120,7 @@ function CreateUpdateCategory() {
                 isUpdate && (
                     <div className="mt-10">
                         <div className="flex items-center justify-between">
-                            <h1 className="text-2xl font-semibold">Danh sách danh mục con</h1>
+                            <h1 className="text-2xl !font-semibold">Danh sách danh mục con</h1>
                             <Button>
                                 <Link to={`/category/create/${category?.id}`} className="flex items-center space-x-2">
                                     Tạo mới danh mục con

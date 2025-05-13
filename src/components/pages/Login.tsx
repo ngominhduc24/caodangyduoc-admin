@@ -39,7 +39,7 @@ function Login() {
                 className="bg-white p-10 rounded-md shadow border w-96"
                 onSubmit={handleSubmit}
             >
-                <h1 className="text-2xl font-bold text-gray-800 mb-4">Đăng nhập</h1>
+                <h1 className="text-2xl !font-bold text-gray-800 mb-4">Đăng nhập</h1>
                 <div className="space-y-2">
                     <div>
                         <Label htmlFor="email" className="text-sm font-medium text-gray-700 mb-1">

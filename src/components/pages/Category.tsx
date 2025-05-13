@@ -32,7 +32,7 @@ function Category() {
     return (
         <div className="max-w-5xl min-h-screen px-5 container">
             <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-semibold">Quản lý danh mục</h1>
+                <h1 className="text-2xl !font-semibold">Quản lý danh mục</h1>
                 <Button>
                     <Link to="/category/create" className="flex items-center space-x-2">
                         Thêm danh mục

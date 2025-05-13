@@ -39,11 +39,11 @@ export default function PostCard({ post }: PostCardProps) {
                     <span>{formattedDate}</span>
                 </div>
                 <Link to={`/post/edit/${post.id}`} className="hover:underline">
-                    <h3 className="font-semibold text-lg line-clamp-2">{post.title}</h3>
+                    <h3 className="!font-bold text-lg line-clamp-2">{post.title}</h3>
                 </Link>
             </CardHeader>
             <CardContent className="pt-0 flex-grow">
-                <p className="text-muted-foreground text-sm line-clamp-3">
+                <p className="text-muted-foreground text-sm line-clamp-3 font-medium">
                     {post.description || "No description available"}
                 </p>
             </CardContent>

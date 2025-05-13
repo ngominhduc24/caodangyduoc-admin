@@ -25,7 +25,7 @@ function News() {
     return (
         <div className="px-5 pb-20 container">
             <div className="flex items-center justify-between mb-5">
-                <h1 className="text-2xl font-bold mb-5">Bài viết</h1>
+                <h1 className="text-2xl !font-bold mb-5">Bài viết</h1>
                 <Link to="/post/create">
                     <Button variant="outline" className="mb-5">
                         Tạo bài viết
@@ -35,7 +35,7 @@ function News() {
             {
                 news?.length === 0 && (
                     <div className="flex items-center justify-center h-96">
-                        <h1 className="text-2xl font-bold">Không có bài viết nào</h1>
+                        <h1 className="text-2xl !font-bold">Không có bài viết nào</h1>
                     </div>
                 )
             }

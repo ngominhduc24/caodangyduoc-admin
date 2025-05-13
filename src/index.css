@@ -2,6 +2,11 @@
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
+* {
+font-family: "Quicksand", sans-serif;
+font-weight: 500;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 .tiptap-image {

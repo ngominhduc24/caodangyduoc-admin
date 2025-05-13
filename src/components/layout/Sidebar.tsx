@@ -52,15 +52,15 @@ function AppSidebar() {
         <Sidebar>
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>CDYD Dashboard</SidebarGroupLabel>
+                    <SidebarGroupLabel><span className="!font-bold text-orange-600">CDYD Dashboard</span></SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <Link to={item.url}>
+                                        <Link to={item.url} className="group/sidebar-item">
                                             <item.icon />
-                                            <span>{item.title}</span>
+                                            <span className="!font-semibold group-hover/sidebar-item:text-orange-600">{item.title}</span>
                                         </Link>
                                     </SidebarMenuButton>
                                 </SidebarMenuItem>

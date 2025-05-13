@@ -124,7 +124,7 @@ function CreatePost() {
         <form className="max-w-5xl min-h-screen px-5 container pb-20" onSubmit={form.handleSubmit(handleSubmit)}>
             <fieldset>
                 <div className="flex items-center justify-between">
-                    <h1 className="text-2xl font-bold mb-5">
+                    <h1 className="text-2xl !font-bold mb-5">
                         {isEditMode ? "Chỉnh sửa bài viết" : "Tạo bài viết"}
                     </h1>
                     <Button disabled={loading} type="submit">
