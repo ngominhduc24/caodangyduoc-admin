@@ -9,6 +9,48 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      application_form: {
+        Row: {
+          address: string
+          created_at: string
+          dob: string
+          education: string
+          full_name: string
+          id: number
+          note: string | null
+          phone: string
+          register_location: string
+          register_major: string
+          status: string
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          dob: string
+          education: string
+          full_name: string
+          id?: number
+          note?: string | null
+          phone: string
+          register_location: string
+          register_major: string
+          status?: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          dob?: string
+          education?: string
+          full_name?: string
+          id?: number
+          note?: string | null
+          phone?: string
+          register_location?: string
+          register_major?: string
+          status?: string
+        }
+        Relationships: []
+      }
       banner: {
         Row: {
           created_at: string
@@ -64,6 +106,27 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      partner: {
+        Row: {
+          created_at: string
+          id: number
+          image: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          image: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          image?: string
+          name?: string
+        }
+        Relationships: []
       }
       post: {
         Row: {
