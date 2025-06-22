@@ -9,11 +9,11 @@ import {
   HomePage,
   LoginPage,
   NewsPage,
-  PartnerPage,
 } from "./components/pages";
 import ApplicationForm from "./components/pages/ApplicationForm";
 import { Toaster } from "sonner";
 import AuthProvider from "./components/context/AuthProvider";
+import PartnerPage from "./components/pages/PartnerPage";
 
 function App() {
   const router = createBrowserRouter([
