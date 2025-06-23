@@ -1,11 +1,21 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import MainLayout from "./components/layout/MainLayout"
-import { BannerPage, CategoryPage, CreatePostPage, CreateUpdateCategoryPage, ErrorPage, HomePage, LoginPage, NewsPage, PartnerPage } from "./components/pages"
-import { Toaster } from "sonner"
-import AuthProvider from "./components/context/AuthProvider"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import MainLayout from "./components/layout/MainLayout";
+import {
+  BannerPage,
+  CategoryPage,
+  CreatePostPage,
+  CreateUpdateCategoryPage,
+  ErrorPage,
+  HomePage,
+  LoginPage,
+  NewsPage,
+} from "./components/pages";
+import ApplicationForm from "./components/pages/ApplicationForm";
+import { Toaster } from "sonner";
+import AuthProvider from "./components/context/AuthProvider";
+import PartnerPage from "./components/pages/PartnerPage";
 
 function App() {
-
   const router = createBrowserRouter([
     {
       element: <MainLayout />,
@@ -13,58 +23,62 @@ function App() {
       children: [
         {
           path: "/",
-          element: <HomePage />
+          element: <HomePage />,
         },
         {
           path: "/banner",
-          element: <BannerPage />
+          element: <BannerPage />,
         },
         {
           path: "/category",
-          element: <CategoryPage />
+          element: <CategoryPage />,
         },
         {
           path: "/category/create",
-          element: <CreateUpdateCategoryPage />
+          element: <CreateUpdateCategoryPage />,
         },
         {
           path: "/category/create/:parentId",
-          element: <CreateUpdateCategoryPage />
+          element: <CreateUpdateCategoryPage />,
         },
         {
           path: "/category/update/:id",
-          element: <CreateUpdateCategoryPage />
+          element: <CreateUpdateCategoryPage />,
         },
         {
           path: "/partner",
-          element: <PartnerPage />
+          element: <PartnerPage />,
         },
         {
           path: "post",
-          element: <NewsPage />
+          element: <NewsPage />,
         },
         {
           path: "/post/create",
-          element: <CreatePostPage />
+          element: <CreatePostPage />,
         },
         {
           path: "/post/edit/:id",
-          element: <CreatePostPage />
+          element: <CreatePostPage />,
         },
-      ]
+        {
+          path: "/application-form",
+          element: <ApplicationForm />,
+        },
+      ],
     },
     {
       path: "/login",
-      element: <LoginPage />
-    }
-  ])
+      element: <LoginPage />,
+    },
+  ]);
 
   return (
     <AuthProvider>
       <RouterProvider router={router} />
       <Toaster position="top-center" />
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
