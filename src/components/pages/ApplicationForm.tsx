@@ -27,7 +27,7 @@ type ApplicationFormType = {
   status: "unread" | "read" | "processing" | "accepted" | "rejected";
 };
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = 15;
 
 function ApplicationForm() {
   const [forms, setForms] = useState<ApplicationFormType[]>([]);
