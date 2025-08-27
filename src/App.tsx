@@ -6,7 +6,7 @@ import {
   CreatePostPage,
   CreateUpdateCategoryPage,
   ErrorPage,
-  HomePage,
+  // HomePage,
   LoginPage,
   NewsPage,
 } from "./components/pages";
