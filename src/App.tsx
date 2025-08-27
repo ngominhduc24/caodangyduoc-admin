@@ -23,7 +23,7 @@ function App() {
       children: [
         {
           path: "/",
-          element: <HomePage />,
+          element: <ApplicationForm />,
         },
         {
           path: "/banner",
