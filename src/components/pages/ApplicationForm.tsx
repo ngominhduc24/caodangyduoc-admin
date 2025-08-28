@@ -190,6 +190,47 @@ function ApplicationForm() {
 
   const totalPages = Math.ceil(totalCount / PAGE_SIZE);
 
+  // Function to generate pagination numbers
+  const getPaginationNumbers = () => {
+    const pages: (number | string)[] = [];
+    const maxVisible = 5; // Số trang hiển thị tối đa
+
+    if (totalPages <= maxVisible) {
+      // Hiển thị tất cả trang nếu số trang ít
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      // Logic phân trang phức tạp
+      if (page <= 3) {
+        // Gần đầu
+        for (let i = 1; i <= 4; i++) {
+          pages.push(i);
+        }
+        pages.push("...");
+        pages.push(totalPages);
+      } else if (page >= totalPages - 2) {
+        // Gần cuối
+        pages.push(1);
+        pages.push("...");
+        for (let i = totalPages - 3; i <= totalPages; i++) {
+          pages.push(i);
+        }
+      } else {
+        // Ở giữa
+        pages.push(1);
+        pages.push("...");
+        for (let i = page - 1; i <= page + 1; i++) {
+          pages.push(i);
+        }
+        pages.push("...");
+        pages.push(totalPages);
+      }
+    }
+
+    return pages;
+  };
+
   return (
     <div className="max-w-5xl px-5">
       <h1 className="text-xl !font-semibold mb-4">Quản lý Đơn đăng ký</h1>
@@ -414,27 +455,69 @@ function ApplicationForm() {
             )}
           </TableBody>
         </Table>
-        {/* Pagination controls */}
+
+        {/* Enhanced Pagination controls */}
         <div className="flex items-center justify-between mt-4">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-          >
-            Trang trước
-          </Button>
-          <span>
-            Trang {page} / {totalPages || 1}
-          </span>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-            disabled={page === totalPages || totalPages === 0}
-          >
-            Trang sau
-          </Button>
+          <div className="text-sm text-gray-700">
+            Hiển thị {(page - 1) * PAGE_SIZE + 1}-
+            {Math.min(page * PAGE_SIZE, totalCount)} trong tổng số {totalCount}{" "}
+            kết quả
+          </div>
+
+          <div className="flex items-center gap-2">
+            {/* Previous button */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              disabled={page === 1}
+            >
+              ← Trước
+            </Button>
+
+            {/* Page numbers */}
+            <div className="flex items-center gap-1">
+              {getPaginationNumbers().map((pageNum, index) => {
+                if (pageNum === "...") {
+                  return (
+                    <span
+                      key={`ellipsis-${index}`}
+                      className="px-2 py-1 text-gray-500"
+                    >
+                      ...
+                    </span>
+                  );
+                }
+
+                const isCurrentPage = pageNum === page;
+                return (
+                  <Button
+                    key={pageNum}
+                    variant={isCurrentPage ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setPage(pageNum as number)}
+                    className={`w-8 h-8 p-0 ${
+                      isCurrentPage
+                        ? "bg-blue-600 text-white hover:bg-blue-700"
+                        : "hover:bg-gray-100"
+                    }`}
+                  >
+                    {pageNum}
+                  </Button>
+                );
+              })}
+            </div>
+
+            {/* Next button */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+              disabled={page === totalPages || totalPages === 0}
+            >
+              Sau →
+            </Button>
+          </div>
         </div>
       </div>
     </div>
